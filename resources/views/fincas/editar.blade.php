@@ -3,14 +3,14 @@
 @section('content')
     <section class="section">
         <div class="section-header">
-            <h3 class="page__heading">Crear Finca</h3>
+            <h3 class="page__heading">Editar Finca</h3>
         </div>
         <div class="section-body">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="card">
-                        <div class="card-body">     
-                                                                      
+                        <div class="card-body">                            
+                   
                         @if ($errors->any())                                                
                             <div class="alert alert-dark alert-dismissible fade show" role="alert">
                             <strong>¡Revise los campos!</strong>                        
@@ -23,39 +23,44 @@
                             </div>
                         @endif
 
-                    <form action="{{ route('fincas.store') }}" method="POST">
+
+                    <form action="{{ route('fincas.update',$finca->id) }}" method="POST">
                         @csrf
+                        @method('PUT')
                         <div class="row">
+                           
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                    <label for="codigo">Codigo:</label>
-                                   <input type="text" name="codigo" class="form-control">
+                                   <input type="text" name="codigo" class="form-control" value="{{ $finca->codigo }}">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                    <label for="nombre">Nombre:</label>
-                                   <input type="text" name="nombre" class="form-control">
+                                   <input type="text" name="nombre" class="form-control" value="{{ $finca->nombre }}">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                    <label for="administracion">Administracion:</label>
-                                   <input type="text" name="administracion" class="form-control">
+                                   <input type="text" name="administracion" class="form-control" value="{{ $finca->administracion }}">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                    <label for="idruta">Idruta:</label>
-                                   <input type="text" name="idruta" class="form-control">
+                                   <input type="text" name="idruta" class="form-control" value="{{ $finca->idruta }}">
                                 </div>
-                            </div>   
-                        </div>
-                        <div class="col-xs-12 col-sm-12 col-md-12">
+                            </div>
+
+                            <div class="col-xs-12 col-sm-12 col-md-12">
                                 <button type="submit" class="btn btn-primary">Guardar</button>
-                        </div> 
+                            </div>
+                           
+                        </div>
                     </form>
-                    
+
                         </div>
                     </div>
                 </div>

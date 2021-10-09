@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+//AGREGAR spatie
+use Spatie\Permission\Models\Permission;
 
 class SeederTablaPermisos extends Seeder
 {
@@ -24,7 +26,7 @@ class SeederTablaPermisos extends Seeder
             'ver-finca',
             'crear-finca',
             'editar-finca',
-            'borrar-finca',
+            'borrar-finca'
         ];
         
         foreach($permisos as $permiso){
