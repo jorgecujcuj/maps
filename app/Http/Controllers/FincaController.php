@@ -9,7 +9,7 @@ use App\Models\Finca;
 class FincaController extends Controller
 {
     function __construct(){
-        $this->middleware('permission:ver-finca | crear-finca | editar-finca | borrar-finca')->only('index');
+        $this->middleware('permission:ver-finca|crear-finca|editar-finca|borrar-finca')->only('index');
         $this->middleware('permission:crear-finca', ['only'=>['create','store']]);
         $this->middleware('permission:editar-finca', ['only'=>['edit','update']]);
         $this->middleware('permission:borrar-finca', ['only'=>['destroy']]);

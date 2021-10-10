@@ -9,22 +9,22 @@
         <li class="dropdown">
             <a href="#" data-toggle="dropdown"
                class="nav-link dropdown-toggle nav-link-lg nav-link-user">
-                <img alt="image" src="{{ asset('img/logo.png') }}"
+                <img alt="image" src="{{ asset('img/logo2.png') }}" width="75"
                      class="rounded-circle mr-1 thumbnail-rounded user-thumbnail ">
                 <div class="d-sm-none d-lg-inline-block">
-                    Hi, {{\Illuminate\Support\Facades\Auth::user()->first_name}}</div>
+                <h5>Hola</h5> {{\Illuminate\Support\Facades\Auth::user()->first_name}}</div>
             </a>
 
             <div class="dropdown-menu dropdown-menu-right">
                 <div class="dropdown-title">
-                    Welcome, {{\Illuminate\Support\Facades\Auth::user()->name}}</div>
+                Bienvenido: {{\Illuminate\Support\Facades\Auth::user()->name}}</div>
                 <a class="dropdown-item has-icon edit-profile" href="#" data-id="{{ \Auth::id() }}">
-                    <i class="fa fa-user"></i>Edit Profile</a>
+                    <i class="fa fa-user"></i>Editar Perfil</a>
                 <a class="dropdown-item has-icon" data-toggle="modal" data-target="#changePasswordModal" href="#" data-id="{{ \Auth::id() }}"><i
-                            class="fa fa-lock"> </i>Change Password</a>
+                            class="fa fa-lock"> </i>Cambiar la Contraseña</a>
                 <a href="{{ url('logout') }}" class="dropdown-item has-icon text-danger"
                    onclick="event.preventDefault(); localStorage.clear();  document.getElementById('logout-form').submit();">
-                    <i class="fas fa-sign-out-alt"></i> Logout
+                    <i class="fas fa-sign-out-alt"></i> Cerrar Sesión
                 </a>
                 <form id="logout-form" action="{{ url('/logout') }}" method="POST" class="d-none">
                     {{ csrf_field() }}
