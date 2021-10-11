@@ -47,8 +47,8 @@ class FincaController extends Controller
     {
         //protected $fillable = ['codigo','nombre','administracion','idruta'];
         request()->validate([
-            'codigo' => 'required',
-            'nombre' => 'required',
+            'codigo' => 'required|unique:fincas,codigo',
+            'nombre' => 'required|unique:fincas,nombre',
             'administracion' => 'required',
         ]);
 
@@ -90,8 +90,8 @@ class FincaController extends Controller
     {
         //
         request()->validate([
-            'codigo' => 'required',
-            'nombre' => 'required',
+            'codigo' => 'required|unique:fincas,codigo',
+            'nombre' => 'required|unique:fincas,nombre',
             'administracion' => 'required',
         ]);
         $finca->update($request->all());
@@ -108,6 +108,6 @@ class FincaController extends Controller
     {
         //
         $finca->delete();
-        return redirect()->return('fincas.index');
+        return redirect()->route('fincas.index');
     }
 }

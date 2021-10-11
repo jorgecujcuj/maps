@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateFincasTable extends Migration
+class CreatePilotosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,13 @@ class CreateFincasTable extends Migration
      */
     public function up()
     {
-        Schema::create('fincas', function (Blueprint $table) {
+        Schema::create('pilotos', function (Blueprint $table) {
             $table->id();
-            $table->string('codigo');
-            $table->string('nombre');
-            $table->string('administracion');
-            $table->bigInteger('idruta')->nullable();
+            $table->string('codigo',12);
+            $table->string('nombre',40);
+            $table->unsignedBigInteger('idunidad')->nullable();
             $table->timestamps();
+            $table->foreign('idunidad')->references('id')->on('unidades');
             $table->unique(['codigo', 'nombre']);
         });
     }
@@ -31,6 +31,6 @@ class CreateFincasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('fincas');
+        Schema::dropIfExists('pilotos');
     }
 }

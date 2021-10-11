@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateFincasTable extends Migration
+class CreateUnidadesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,13 @@ class CreateFincasTable extends Migration
      */
     public function up()
     {
-        Schema::create('fincas', function (Blueprint $table) {
+        Schema::create('unidades', function (Blueprint $table) {
             $table->id();
             $table->string('codigo');
-            $table->string('nombre');
-            $table->string('administracion');
-            $table->bigInteger('idruta')->nullable();
+            $table->string('placa');
+            $table->string('capacidad');
             $table->timestamps();
-            $table->unique(['codigo', 'nombre']);
+            $table->unique(['codigo', 'placa']);
         });
     }
 
@@ -31,6 +30,6 @@ class CreateFincasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('fincas');
+        Schema::dropIfExists('unidades');
     }
 }

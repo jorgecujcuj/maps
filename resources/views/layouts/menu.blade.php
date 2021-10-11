@@ -14,4 +14,10 @@
     <a class="nav-link" href="/fincas">
         <i class=" fas fa-tractor"></i><span>Fincas</span>
     </a>
+    <a class="nav-link" href="/unidades">
+        <i class=" fas fa-tractor"></i><span>Unidades</span>
+    </a>
+    <a class="nav-link" href="/pilotos">
+        <i class=" fas fa-tractor"></i><span>Pilotos</span>
+    </a>
 </li>
