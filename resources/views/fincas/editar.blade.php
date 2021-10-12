@@ -32,19 +32,19 @@
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                    <label for="codigo">Codigo:</label>
-                                   <input type="text" name="codigo" class="form-control" value="{{ $finca->codigo }}">
+                                   <input type="text" name="codigo" class="form-control" value="{{ old('codigo', $finca->codigo) }}">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                    <label for="nombre">Nombre:</label>
-                                   <input type="text" name="nombre" class="form-control" value="{{ $finca->nombre }}">
+                                   <input type="text" name="nombre" class="form-control" value="{{ old('nombre', $finca->nombre) }}">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                    <label for="administracion">Administracion:</label>
-                                   <input type="text" name="administracion" class="form-control" value="{{ $finca->administracion }}">
+                                   <input type="text" name="administracion" class="form-control" value="{{ old('administracion', $finca->administracion) }}">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">

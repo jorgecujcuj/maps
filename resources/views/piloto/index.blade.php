@@ -22,7 +22,7 @@
                     @endcan
                     
                     @if ($message = Session::get('success'))
-                        <div class="alert alert-success">
+                        <div class="alert alert-success" style="color: black; background-color:#E9F7EF;">
                             <p>{{ $message }}</p>
                         </div>
                     @endif
@@ -35,6 +35,7 @@
                                     <th style="color:#fff;">Codigo</th>
 									<th style="color:#fff;">Nombre</th>
                                     <th style="color:#fff;">Id Unidad</th>
+                                    <th style="color:#fff;">Placa</th>
                                     <th style="color:#fff;">Acciones</th> 
                                         <th></th>
                                     </tr>
@@ -47,6 +48,7 @@
 											<td>{{ $piloto->codigo }}</td>
 											<td>{{ $piloto->nombre }}</td>
                                             <td>{{ $piloto->idunidad }}</td>
+                                            <td>{{ $piloto->unidade->placa }}</td>
 
                                             <td>
                                                 <form action="{{ route('pilotos.destroy',$piloto->id) }}" method="POST">

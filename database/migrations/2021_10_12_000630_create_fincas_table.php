@@ -15,11 +15,12 @@ class CreateFincasTable extends Migration
     {
         Schema::create('fincas', function (Blueprint $table) {
             $table->id();
-            $table->string('codigo');
-            $table->string('nombre');
-            $table->string('administracion');
-            $table->bigInteger('idruta')->nullable();
+            $table->string('codigo',12);
+            $table->string('nombre',50);
+            $table->string('administracion',60);
+            $table->unsignedBigInteger('idruta')->nullable();
             $table->timestamps();
+            $table->foreign('idruta')->references('id')->on('rutas');
             $table->unique(['codigo', 'nombre']);
         });
     }

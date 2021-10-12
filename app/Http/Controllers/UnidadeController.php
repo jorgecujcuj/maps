@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 //AGREGAMOS
 use App\Models\Unidade;
+use App\Http\Requests\UnidadeCreateReques;
+use App\Http\Requests\UnidadeEditReques;
 
 /**
  * Class UnidadeController
@@ -48,14 +50,14 @@ class UnidadeController extends Controller
      * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UnidadeCreateReques $request)
     {
         request()->validate(Unidade::$rules);
 
         $unidade = Unidade::create($request->all());
 
         return redirect()->route('unidades.index')
-            ->with('success', 'Unidade created successfully.');
+            ->with('success', 'Unidad creada con éxito.');
     }
 
     /**
@@ -91,14 +93,17 @@ class UnidadeController extends Controller
      * @param  Unidade $unidade
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Unidade $unidade)
+    public function update(UnidadeEditReques $request, Unidade $unidade)
     {
-        request()->validate(Unidade::$rules);
+        //request()->validate(Unidade::$rules);
 
-        $unidade->update($request->all());
+        //$unidade->update($request->all());
+        $data = $request->only('codigo', 'placa', 'capacidad');
+
+        $unidade->update($data);
 
         return redirect()->route('unidades.index')
-            ->with('success', 'Unidade updated successfully');
+            ->with('success', 'Unidad actualizado con éxito.');
     }
 
     /**
@@ -108,9 +113,21 @@ class UnidadeController extends Controller
      */
     public function destroy($id)
     {
-        $unidade = Unidade::find($id)->delete();
+        /*$unidade = Unidade::find($id)->delete();
 
         return redirect()->route('unidades.index')
-            ->with('success', 'Unidade deleted successfully');
+            ->with('success', 'Unidad eliminado con éxito.');
+        */
+        try {
+            //Eliminar registro
+            $unidade = Unidade::find($id)->delete();
+            $status = 'Unidad eliminada con éxito';
+        } catch (\Illuminate\Database\QueryException $e) {
+            $status = 'Registro relacionado, imposible de eliminar';
+        }
+        //Retornar vista
+        return redirect()->route('unidades.index')
+        ->with('success', $status);
+
     }
 }

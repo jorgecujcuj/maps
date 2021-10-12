@@ -35,6 +35,12 @@ class Unidade extends Model
      */
     protected $fillable = ['codigo','placa','capacidad'];
 
-
+    /**
+     *@return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function piloto()
+    {
+        return $this->hasMany('App\Models\Piloto', 'idunidad','id');
+    }
 
 }

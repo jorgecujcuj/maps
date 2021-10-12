@@ -41,7 +41,13 @@ class SeederTablaPermisos extends Seeder
             'ver-piloto',
             'crear-piloto',
             'editar-piloto',
-            'borrar-piloto'
+            'borrar-piloto',
+            //tabla ruta
+            'ver-ruta',
+            'crear-ruta',
+            'editar-ruta',
+            'borrar-ruta'
+
         ];
         
         foreach($permisos as $permiso){

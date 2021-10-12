@@ -8,6 +8,7 @@ use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\FincaController;
 use App\Http\Controllers\UnidadeController;
 use App\Http\Controllers\PilotoController;
+use App\Http\Controllers\RutaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,4 +37,5 @@ Route::group(['middleware' => ['auth']],function(){
     Route::resource('fincas', FincaController::class);
     Route::resource('unidades', UnidadeController::class);
     Route::resource('pilotos', PilotoController::class);
+    Route::resource('rutas', RutaController::class);
 });

@@ -1,10 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-
+//AGREGUE
 use App\Models\Piloto;
 use App\Models\Unidade;
 use Illuminate\Http\Request;
+use App\Http\Requests\PilotoCreateReques;
+use App\Http\Requests\PilotoEditReques;
 
 /**
  * Class PilotoController
@@ -25,9 +27,10 @@ class PilotoController extends Controller
      */
     public function index()
     {
+        $unidades = Unidade::pluck('placa','id');
         $pilotos = Piloto::paginate(10);
 
-        return view('piloto.index', compact('pilotos'))
+        return view('piloto.index', compact('pilotos','unidades'))
             ->with('i', (request()->input('page', 1) - 1) * $pilotos->perPage());
     }
 
@@ -49,14 +52,14 @@ class PilotoController extends Controller
      * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PilotoCreateReques $request)
     {
         request()->validate(Piloto::$rules);
 
         $piloto = Piloto::create($request->all());
 
         return redirect()->route('pilotos.index')
-            ->with('success', 'Piloto created successfully.');
+            ->with('success', 'Piloto creada con éxito.');
     }
 
     /**
@@ -93,14 +96,17 @@ class PilotoController extends Controller
      * @param  Piloto $piloto
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Piloto $piloto)
+    public function update(PilotoEditReques $request, Piloto $piloto)
     {
-        request()->validate(Piloto::$rules);
+        //request()->validate(Piloto::$rules);
 
-        $piloto->update($request->all());
+        //$piloto->update($request->all());
+        $data = $request->only('codigo', 'nombre', 'idunidad');
+
+        $piloto->update($data);
 
         return redirect()->route('pilotos.index')
-            ->with('success', 'Piloto updated successfully');
+            ->with('success', 'Piloto actualizado con éxito.');
     }
 
     /**
@@ -113,6 +119,6 @@ class PilotoController extends Controller
         $piloto = Piloto::find($id)->delete();
 
         return redirect()->route('pilotos.index')
-            ->with('success', 'Piloto deleted successfully');
+            ->with('success', 'Piloto eliminado con éxito.');
     }
 }

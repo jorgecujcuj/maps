@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 //AGREGAMOS
 use App\Models\Finca;
+use App\Http\Requests\FincaCreateReques;
+use App\Http\Requests\FincaEditReques;
 
 class FincaController extends Controller
 {
@@ -43,16 +45,11 @@ class FincaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(FincaCreateReques $request)
     {
-        //protected $fillable = ['codigo','nombre','administracion','idruta'];
-        request()->validate([
-            'codigo' => 'required|unique:fincas,codigo',
-            'nombre' => 'required|unique:fincas,nombre',
-            'administracion' => 'required',
-        ]);
+        //
+        $finca = Finca::create($request->only('codigo', 'nombre', 'administracion'));
 
-        Finca::create($request->all());
         return redirect()->route('fincas.index');
     }
 
@@ -86,15 +83,14 @@ class FincaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Finca $finca)
+    public function update(FincaEditReques $request, Finca $finca)
     {
         //
-        request()->validate([
-            'codigo' => 'required|unique:fincas,codigo',
-            'nombre' => 'required|unique:fincas,nombre',
-            'administracion' => 'required',
-        ]);
-        $finca->update($request->all());
+       
+        $data = $request->only('codigo', 'nombre', 'administracion');
+
+        $finca->update($data);
+
         return redirect()->route('fincas.index');
     }
 

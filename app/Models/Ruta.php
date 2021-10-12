@@ -5,24 +5,27 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class Piloto
+ * Class Ruta
  *
  * @property $id
  * @property $codigo
  * @property $nombre
+ * @property $latitud
+ * @property $longitud
  * @property $created_at
  * @property $updated_at
  *
  * @package App
  * @mixin \Illuminate\Database\Eloquent\Builder
  */
-class Piloto extends Model
+class Ruta extends Model
 {
     
     static $rules = [
-		'codigo' => 'required|unique:pilotos,codigo',
-		'nombre' => 'required|unique:pilotos,nombre',
-    'idunidad' => 'required',
+		'codigo' => 'required',
+		'nombre' => 'required',
+		'latitud' => 'required|numeric',
+		'longitud' => 'required|numeric',
     ];
 
     protected $perPage = 20;
@@ -32,14 +35,8 @@ class Piloto extends Model
      *
      * @var array
      */
-    protected $fillable = ['codigo','nombre','idunidad'];
+    protected $fillable = ['codigo','nombre','latitud','longitud'];
 
-    /**
-     *@return \Illuminate\Database\Eloquent\Relations\HasOne
-     */
-    public function unidade()
-    {
-        return $this->hasOne('App\Models\Unidade', 'id','idunidad');
-    }
+
 
 }

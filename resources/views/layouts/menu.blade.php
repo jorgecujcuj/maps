@@ -11,6 +11,9 @@
     <a class="nav-link" href="/roles">
         <i class=" fas fa-user-lock"></i><span>Roles</span>
     </a>
+    <a class="nav-link" href="/rutas">
+        <i class=" fas fa-user-lock"></i><span>Rutas</span>
+    </a>
     <a class="nav-link" href="/fincas">
         <i class=" fas fa-tractor"></i><span>Fincas</span>
     </a>

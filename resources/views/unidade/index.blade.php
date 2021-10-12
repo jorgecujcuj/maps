@@ -22,7 +22,7 @@
                             @endcan
                     
                             @if ($message = Session::get('success'))
-                                <div class="alert alert-success">
+                                <div class="alert alert-success" style="color: black; background-color:#E9F7EF;">
                                     <p>{{ $message }}</p>
                                 </div>
                             @endif
@@ -33,6 +33,7 @@
                                     <thead style="background-color:#515151">
                                         <tr>
                                         <th style="color:#fff;">No</th>
+                                        <th style="color:#fff;">id</th>
                                         <th style="color:#fff;">Codigo</th>
                                         <th style="color:#fff;">Placa</th>
                                         <th style="color:#fff;">Capacidad</th>
@@ -46,6 +47,7 @@
                                                 <td>{{ ++$i }}</td>
                                                 
                                                 <td>{{ $unidade->id }}</td>
+                                                <td>{{ $unidade->codigo }}</td>
                                                 <td>{{ $unidade->placa }}</td>
                                                 <td>{{ $unidade->capacidad }}</td>
 
@@ -69,14 +71,15 @@
                                     </tbody>
                                 </table>
                             </div>
-                        <div class="pagination justify-content-end">
-                        {!! $unidades->links() !!}
-                        </div>
+                            
+                            <div class="pagination justify-content-end">
+                            {!! $unidades->links() !!}
+                            </div>
 
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 </section>
 @endsection
