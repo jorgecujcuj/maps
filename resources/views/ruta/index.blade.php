@@ -30,7 +30,7 @@
                                                         <input type="text" class="form-control" placeholder="" name="texto" value="{{ $texto }}">
                                                     </div>
                                                     <div class="col-auto">
-                                                        <button type="button" class="btn btn-primary" name="Buscar">Buscar</button>
+                                                        <input type="submit" class="btn btn-primary" Value="Buscar">
                                                     </div>
                                                 </div>
                                             </form>

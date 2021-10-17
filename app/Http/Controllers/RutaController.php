@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 //AGREGAMOS
 use App\Models\Ruta;
-
+use App\Http\Requests\RutaCreateReques;
+use App\Http\Requests\RutaEditReques;
 /**
  * Class RutaController
  * @package App\Http\Controllers
@@ -51,14 +52,14 @@ class RutaController extends Controller
      * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(RutaCreateReques $request)
     {
         request()->validate(Ruta::$rules);
 
         $ruta = Ruta::create($request->all());
 
         return redirect()->route('rutas.index')
-            ->with('success', 'Ruta created successfully.');
+            ->with('success', 'Ruta creada con éxito.');
     }
 
     /**
@@ -94,14 +95,17 @@ class RutaController extends Controller
      * @param  Ruta $ruta
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Ruta $ruta)
+    public function update(RutaEditReques $request, Ruta $ruta)
     {
-        request()->validate(Ruta::$rules);
+        //request()->validate(Ruta::$rules);
 
-        $ruta->update($request->all());
+        //$ruta->update($request->all());
+        $data = $request->only('codigo', 'nombre', 'latitud', 'longitud');
+
+        $ruta->update($data);
 
         return redirect()->route('rutas.index')
-            ->with('success', 'Ruta updated successfully');
+            ->with('success', 'Ruta actualizada con éxito.');
     }
 
     /**

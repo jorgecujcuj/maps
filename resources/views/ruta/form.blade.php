@@ -31,8 +31,9 @@
 
     </div>
     <div class="box-footer mt20">
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary">Guardar</button>
     </div>
+    
 </div>
 <br><br>
 <div class="box box-info padding-1">
@@ -40,28 +41,15 @@
         <div id="map_canvas" style="width: auto; height: 600px;"></div>
     </div>
 </div>
-
 </body>
 
-@section('css')
-<link
-      rel="stylesheet"
-      href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
-      integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
-      crossorigin=""
-/>
-@endsection
-
 @section('js')
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script
-      src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
-      integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
-      crossorigin=""
-></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD9DY04K6SIJModAyyH5uTIp4bWqhe9p6E"></script>
+
 <script type="text/javascript">
-        function initialize() {
+       function initialize() {
             if ('geolocation' in navigator) {
                 console.log('geolocation available');
                 navigator.geolocation.getCurrentPosition(position => {

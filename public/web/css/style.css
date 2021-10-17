@@ -802,8 +802,9 @@ select.form-control:not([size]):not([multiple]) {
     padding-top: 20px;
     padding-bottom: 20px;
 }
-
+/*MODIFIQUE*/
 .card .card-body .section-title {
+    /*margin: 30px 0 10px 0;*/
     margin: 30px 0 10px 0;
     font-size: 16px;
 }
@@ -2104,8 +2105,8 @@ h6 .badge {
 /* 3.18 Navbar */
 .navbar {
     height: 70px;
-    left: 250px;
-    right: 5px;
+    /*left: 250px;*/
+    right: 5px;/*derecha*/
     position: absolute;
     z-index: 890;
     background-color: transparent;
@@ -2391,6 +2392,7 @@ h6 .badge {
         position: absolute;
         top: 40px;
         left: 0;
+        right: 5px;
         width: 200px;
         display: none;
     }
@@ -2423,8 +2425,9 @@ h6 .badge {
     }
 
     .navbar {
-        left: 5px;
-        right: 0;
+        /*left: 5px;
+        right: 0;*/
+        right: 5px;
     }
 
     .navbar .dropdown-menu {
@@ -3244,6 +3247,7 @@ pre {
     border-radius: 3px;
     border: none;
     position: relative;
+    /*margin-bottom: 30px;*/
     margin-bottom: 30px;
     padding: 20px;
     display: flex;
@@ -3400,6 +3404,7 @@ pre {
 /* 4.4 Layout */
 .main-sidebar {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.03);
+    /*position: fixed;*/
     position: fixed;
     top: 0;
     height: 100%;
@@ -3643,9 +3648,10 @@ body.layout-2 .main-sidebar .sidebar-menu li.active ul.dropdown-menu {
 body.layout-2 .main-sidebar .sidebar-menu li.active ul.dropdown-menu a {
     background-color: transparent;
 }
-
+/*MODIFIQUE*/
 body.layout-2 .main-content {
-    padding-top: 107px;
+    /*padding-top: 107px;*/
+    padding-top: 30px;
     padding-left: 30px;
     padding-right: 0;
     width: calc(100% - 200px);
@@ -3954,9 +3960,10 @@ body.layout-3 .main-footer {
 .main-sidebar .sidebar-menu li ul.dropdown-menu li ul.dropdown-menu {
     padding-left: 10px;
 }
-
+/*MODIFIQUE*/
 .main-content {
-    padding-left: 280px;
+    /*padding-left: 280px;*/
+    padding-left: 30px;
     padding-right: 30px;
     padding-top: 80px;
     width: 100%;
@@ -4099,6 +4106,25 @@ body:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu li.active ul.dropdown-men
         }
     }
 }
+
+/*
+@media (min-width:128px) {
+    .sidebar-gone-hide {
+        display: none !important;
+    }
+
+    .sidebar-gone-show {
+        display: block !important;
+    }
+
+    .main-sidebar {
+        position: relative !important;
+        margin-top: 0 !important;
+        z-index: 891;
+       
+    }
+    
+}*/
 
 /* 4.5 Animation */
 .pulsate {

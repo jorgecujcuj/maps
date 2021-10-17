@@ -1,11 +1,32 @@
+<!--
 <form class="form-inline mr-auto" action="#">
     <ul class="navbar-nav mr-3">
         <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg"><i class="fas fa-bars"></i></a></li>
     </ul>
-</form>
+</form>-->
 <ul class="navbar-nav navbar-right">
 
+          
+        <li class="nav-item dropdown active" style="background-color: #53AD4B">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <img alt="image" src="{{ asset('img/menu.png') }}" width="85"
+                     class=" mr-1 thumbnail-rounded user-thumbnail ">
+            </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" style="font-weight: bold;" href="/home">{{ __('  Tablero') }}</a>
+                        <a class="dropdown-item" style="font-weight: bold;" href="/usuarios">{{ __('  Usuario') }}</a>
+                        <a class="dropdown-item" style="font-weight: bold;" href="/roles">{{ __('  Roles') }}</a>
+                        <a class="dropdown-item" style="font-weight: bold;" href="/rutas">{{ __('  Rutas') }}</a>
+                        <a class="dropdown-item" style="font-weight: bold;" href="/fincas">{{ __('  Fincas') }}</a>
+                        <a class="dropdown-item" style="font-weight: bold;" href="/unidades">{{ __('  Unidades') }}</a>
+                        <a class="dropdown-item" style="font-weight: bold;" href="/pilotos">{{ __('  Pilotos') }}</a>
+                        <a class="dropdown-item" style="font-weight: bold;" href="/solicitudes">{{ __('  Solicitud') }}</a>
+                </div>
+        </li>
+        
+                    
     @if(\Illuminate\Support\Facades\Auth::user())
+
         <li class="dropdown">
             <a href="#" data-toggle="dropdown"
                class="nav-link dropdown-toggle nav-link-lg nav-link-user">
@@ -51,3 +72,11 @@
         </li>
     @endif
 </ul>
+
+@section('css')
+
+@endsection
+
+@section('js')
+
+@endsection

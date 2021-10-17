@@ -12,7 +12,7 @@
             {!! $errors->first('nombre', '<div class="invalid-feedback">:message</p>') !!}
         </div>
         <div class="form-group">
-            {{ Form::label('idunidad') }}
+            {{ Form::label('Placa') }}
             <select class="form-control" name="idunidad">
                     <option value="" selected disabled> - Selecciona una unidad - </option>
                     @foreach ($unidades as $unidade)
