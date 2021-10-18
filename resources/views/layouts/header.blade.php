@@ -13,14 +13,34 @@
                      class=" mr-1 thumbnail-rounded user-thumbnail ">
             </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" style="font-weight: bold;" href="/home">{{ __('  Tablero') }}</a>
-                        <a class="dropdown-item" style="font-weight: bold;" href="/usuarios">{{ __('  Usuario') }}</a>
-                        <a class="dropdown-item" style="font-weight: bold;" href="/roles">{{ __('  Roles') }}</a>
-                        <a class="dropdown-item" style="font-weight: bold;" href="/rutas">{{ __('  Rutas') }}</a>
-                        <a class="dropdown-item" style="font-weight: bold;" href="/fincas">{{ __('  Fincas') }}</a>
-                        <a class="dropdown-item" style="font-weight: bold;" href="/unidades">{{ __('  Unidades') }}</a>
-                        <a class="dropdown-item" style="font-weight: bold;" href="/pilotos">{{ __('  Pilotos') }}</a>
-                        <a class="dropdown-item" style="font-weight: bold;" href="/solicitudes">{{ __('  Solicitud') }}</a>
+                    <a class="dropdown-item" style="font-weight: bold;" href="/home">{{ __('  Tablero') }}</a>
+                    @can('ver-usuario')
+                    <a class="dropdown-item" style="font-weight: bold;" href="/usuarios">{{ __('  Usuario') }}</a>
+                    @endcan
+                    @can('ver-rol')
+                    <a class="dropdown-item" style="font-weight: bold;" href="/roles">{{ __('  Roles') }}</a>
+                    @endcan
+                    @can('ver-ruta')
+                    <a class="dropdown-item" style="font-weight: bold;" href="/rutas">{{ __('  Rutas') }}</a>
+                    @endcan
+                    @can('ver-finca')
+                    <a class="dropdown-item" style="font-weight: bold;" href="/fincas">{{ __('  Fincas') }}</a>
+                    @endcan
+                    @can('ver-unidad')
+                    <a class="dropdown-item" style="font-weight: bold;" href="/unidades">{{ __('  Unidades') }}</a>
+                    @endcan
+                    @can('ver-piloto')
+                    <a class="dropdown-item" style="font-weight: bold;" href="/pilotos">{{ __('  Pilotos') }}</a>
+                    @endcan
+                    @can('ver-solicitud')
+                    <a class="dropdown-item" style="font-weight: bold;" href="/solicitudes">{{ __('  Solicitud') }}</a>
+                    @endcan
+                    @can('ver-programados')
+                    <a class="dropdown-item" style="font-weight: bold;" href="/programados">{{ __('  Programado') }}</a>
+                    @endcan
+                    @can('ver-confirmacion')
+                    <a class="dropdown-item" style="font-weight: bold;" href="/confirmaciones">{{ __('  Confirmacion') }}</a>
+                    @endcan
                 </div>
         </li>
         

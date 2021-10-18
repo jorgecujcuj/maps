@@ -29,6 +29,7 @@ class FincaEditReques extends FormRequest
             'codigo' => ['required','unique:fincas,codigo,' . request()->route('finca')->id],
             'nombre' => ['required','min:5','unique:fincas,nombre,' . request()->route('finca')->id],
             'administracion' => ['required','min:5'],
+            'idruta' => ['required'],
         ];
     }
 }

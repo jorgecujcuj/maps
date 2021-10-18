@@ -1,13 +1,13 @@
 @extends('layouts.app')
 
 @section('template_title')
-    Create Unidade
+    Update Programado
 @endsection
 
 @section('content')
 <section class="section">
     <div class="section-header">
-        <h3 class="page__heading">Crear Unidad</h3>
+        <h3 class="page__heading">Editar solicitud programada</h3>
     </div>
         <div class="section-body">
             <div class="row">
@@ -15,13 +15,14 @@
                     <div class="card">
                         <div class="card-body">
 
-                            <form method="POST" action="{{ route('unidades.store') }}"  role="form" enctype="multipart/form-data">
+                            <form method="POST" action="{{ route('programados.update', $programado->id) }}"  role="form" enctype="multipart/form-data">
+                                {{ method_field('PATCH') }}
                                 @csrf
 
-                                @include('unidade.form')
+                                @include('programado.form')
 
                             </form>
-                            
+
                         </div>
                     </div>
                 </div>

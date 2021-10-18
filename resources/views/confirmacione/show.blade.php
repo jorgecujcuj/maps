@@ -1,14 +1,14 @@
 @extends('layouts.app')
 
 @section('template_title')
-    {{ $solicitude->name ?? 'Show Solicitude' }}
+    {{ $confirmacione->name ?? 'Show Confirmacione' }}
 @endsection
 
 @section('content')
 <section class="section">
-        <div class="section-header">
-            <h3 class="page__heading">Ver Solicitud</h3>
-        </div>
+    <div class="section-header">
+        <h3 class="page__heading">Ver Confirmaciones</h3>
+    </div>
         <div class="section-body">
             <div class="row">
                 <div class="col-lg-12">
@@ -16,28 +16,28 @@
                         <div class="card-body">
                         
                             <div class="form-group">
-                                <strong>Idfinca:</strong>
-                                {{ $solicitude->idfinca }}
+                                <strong>Idprogramado:</strong>
+                                {{ $confirmacione->idprogramado }}
                             </div>
                             <div class="form-group">
-                                <strong>Idpiloto:</strong>
-                                {{ $solicitude->idpiloto }}
+                                <strong>Latitud:</strong>
+                                {{ $confirmacione->latitud }}
                             </div>
                             <div class="form-group">
-                                <strong>Fecha solicitada:</strong>
-                                {{ $solicitude->fechasolicitada}}
+                                <strong>Longitud:</strong>
+                                {{ $confirmacione->longitud }}
                             </div>
                             <div class="form-group">
-                                <strong>Telefono:</strong>
-                                {{ $solicitude->telefono }}
+                                <strong>Abastecida:</strong>
+                                {{ $confirmacione->abastecida }}
                             </div>
                             <div class="form-group">
-                                <strong>Observacion:</strong>
-                                {{ $solicitude->observacion }}
+                                <strong>Descripcion:</strong>
+                                {{ $confirmacione->descripcion }}
                             </div>
 
                             <div class="float-right">
-                                <a class="btn btn-primary" href="{{ route('solicitudes.index') }}"> Regresar</a>
+                                <a class="btn btn-primary" href="{{ route('confirmaciones.index') }}"> Regresar</a>
                             </div>
 
                         </div>

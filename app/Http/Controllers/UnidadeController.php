@@ -113,11 +113,6 @@ class UnidadeController extends Controller
      */
     public function destroy($id)
     {
-        /*$unidade = Unidade::find($id)->delete();
-
-        return redirect()->route('unidades.index')
-            ->with('success', 'Unidad eliminado con éxito.');
-        */
         try {
             //Eliminar registro
             $unidade = Unidade::find($id)->delete();

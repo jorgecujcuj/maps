@@ -115,9 +115,17 @@ class RutaController extends Controller
      */
     public function destroy($id)
     {
-        $ruta = Ruta::find($id)->delete();
 
+        try {
+            //Eliminar registro
+            $ruta = Ruta::find($id)->delete();
+            $status = 'Ruta eliminada con éxito';
+        } catch (\Illuminate\Database\QueryException $e) {
+            $status = 'Registro relacionado, imposible de eliminar';
+        }
+
+        //Retornar vista
         return redirect()->route('rutas.index')
-            ->with('success', 'Ruta deleted successfully');
+            ->with('success', $status);
     }
 }

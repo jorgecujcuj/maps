@@ -54,15 +54,15 @@
                                                 <td>
                                                     <form action="{{ route('unidades.destroy',$unidade->id) }}" method="POST">
                                                         @can('ver-unidad')
-                                                        <a class="btn btn-primary " href="{{ route('unidades.show',$unidade->id) }}"><i class="fa fa-fw fa-eye"></i> Ver</a>
+                                                        <a class="btn btn-sm btn-primary " href="{{ route('unidades.show',$unidade->id) }}"><i class="fa fa-fw fa-eye"></i> Ver</a>
                                                         @endcan
                                                         @can('editar-unidad')
-                                                        <a class="btn btn-info" href="{{ route('unidades.edit',$unidade->id) }}"> Editar</a>
+                                                        <a class="btn btn-sm btn-success" href="{{ route('unidades.edit',$unidade->id) }}"> Editar</a>
                                                         @endcan
                                                         @csrf
                                                         @method('DELETE')
                                                         @can('borrar-unidad')
-                                                        <button type="submit" class="btn btn-danger">Borrar</button>
+                                                        <button type="submit" class="btn btn-sm btn-danger">Borrar</button>
                                                         @endcan
                                                     </form>
                                                 </td>

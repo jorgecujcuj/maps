@@ -46,13 +46,22 @@
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
-                                   <label for="idruta">Idruta:</label>
-                                   <input type="text" name="idruta" class="form-control">
+                                    {{ Form::label('idruta') }}
+                                    <select class="form-control" name="idruta">
+                                            <option value="" selected disabled> - Selecciona una ruta - </option>
+                                            @foreach ($rutas as $ruta)
+                                            <option name="idruta" value="{{ $ruta->id }}">{{ $ruta->nombre }}</option>
+                                            @endforeach
+                                    </select>
+                                    @error('idruta')
+                                        <div class="alert alert-danger">{{ $message }}</div>
+                                    @enderror
                                 </div>
-                            </div>   
+                            </div>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12">
-                                <button type="submit" class="btn btn-primary">Guardar</button>
+                            <button type="submit" class="btn btn-primary">Guardar</button>
+                            <a class="btn btn-danger" href="{{ route('fincas.index') }}"> Regresar</a>
                         </div> 
                     </form>
                     

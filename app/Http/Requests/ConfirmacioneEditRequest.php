@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class FincaCreateReques extends FormRequest
+class ConfirmacioneEditRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,10 +25,11 @@ class FincaCreateReques extends FormRequest
     {
         return [
             //
-            'codigo' => ['required','unique:fincas,codigo'],
-            'nombre' => ['required','min:5','unique:fincas,nombre'],
-            'administracion' => ['required','min:5'],
-            'idruta' => ['numeric'],
+            'idprogramado' => ['required','unique:confirmaciones,idprogramado,' . request()->route('confirmacione')->id],
+            'latitud' => ['required','numeric'],
+            'longitud' => ['required','numeric'],
+            'abastecida' => ['required'],
+            'descripcion' => ['required','min:10'],
         ];
     }
 }

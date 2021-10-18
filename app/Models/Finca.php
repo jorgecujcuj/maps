@@ -9,4 +9,15 @@ class Finca extends Model
 {
     use HasFactory;
     protected $fillable = ['codigo','nombre','administracion','idruta'];
+
+    /**
+     *@return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function programado()
+    {
+        return $this->hasMany('App\Models\Programado', 'idfinca','id');
+    }
+
 }
+
+   

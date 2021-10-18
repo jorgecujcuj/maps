@@ -18,7 +18,7 @@
                             <div class="table-responsive">
                                 <table class="table table-striped mt-2">
                                         <thead style="background-color:#515151">                                     
-                                            <th style="display: none;">ID</th>
+                                            <th style="color:#fff;">ID</th>
                                             <th style="color:#fff;">Codigo</th>
                                             <th style="color:#fff;">Nombre</th>
                                             <th style="color:#fff;">Administracion</th>                                    
@@ -28,7 +28,7 @@
                                     <tbody>
                                     @foreach ($fincas as $finca)
                                     <tr>
-                                        <td style="display: none;">{{ $finca->id }}</td>                                
+                                        <td>{{ $finca->id }}</td>                                
                                         <td>{{ $finca->codigo }}</td>
                                         <td>{{ $finca->nombre }}</td>
                                         <td>{{ $finca->administracion }}</td>
@@ -36,13 +36,13 @@
                                         <td>
                                             <form action="{{ route('fincas.destroy',$finca->id) }}" method="POST">                                        
                                                 @can('editar-finca')
-                                                <a class="btn btn-info" href="{{ route('fincas.edit',$finca->id) }}">Editar</a>
+                                                <a class="btn btn-sm btn-success" href="{{ route('fincas.edit',$finca->id) }}">Editar</a>
                                                 @endcan
 
                                                 @csrf
                                                 @method('DELETE')
                                                 @can('borrar-finca')
-                                                <button type="submit" class="btn btn-danger">Borrar</button>
+                                                <button type="submit" class="btn btn-sm btn-danger">Borrar</button>
                                                 @endcan
                                             </form>
                                         </td>

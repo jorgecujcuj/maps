@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 //AGREGAMOS
 use App\Models\Finca;
+use App\Models\Ruta;
 use App\Http\Requests\FincaCreateReques;
 use App\Http\Requests\FincaEditReques;
 
@@ -24,7 +25,8 @@ class FincaController extends Controller
     public function index()
     {
         //
-        $fincas = Finca::paginate(10);
+        $fincas = Finca::orderBy('nombre')->paginate(10);
+
         return view('fincas.index', compact('fincas'));
     }
 
@@ -36,7 +38,10 @@ class FincaController extends Controller
     public function create()
     {
         //
-        return view('fincas.crear');
+        $rutas = Ruta::orderBy('nombre')->get();
+
+        return view('fincas.crear', compact('rutas'));
+        //return $ruta;
     }
 
     /**
@@ -48,7 +53,7 @@ class FincaController extends Controller
     public function store(FincaCreateReques $request)
     {
         //
-        $finca = Finca::create($request->only('codigo', 'nombre', 'administracion'));
+        $finca = Finca::create($request->only('codigo', 'nombre', 'administracion','idruta'));
 
         return redirect()->route('fincas.index');
     }
@@ -73,7 +78,9 @@ class FincaController extends Controller
     public function edit(Finca $finca)
     {
         //
-        return view('fincas.editar', compact('finca'));
+        $rutas = Ruta::orderBy('nombre')->get();
+
+        return view('fincas.editar', compact('finca','rutas'));
     }
 
     /**
@@ -86,8 +93,7 @@ class FincaController extends Controller
     public function update(FincaEditReques $request, Finca $finca)
     {
         //
-       
-        $data = $request->only('codigo', 'nombre', 'administracion');
+        $data = $request->only('codigo', 'nombre', 'administracion','idruta');
 
         $finca->update($data);
 
@@ -100,10 +106,22 @@ class FincaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Finca $finca)
+    public function destroy($id)
     {
         //
-        $finca->delete();
-        return redirect()->route('fincas.index');
+        //$finca->delete();
+        //return redirect()->route('fincas.index');
+        try {
+            //Eliminar registro
+            $finca = Finca::find($id)->delete();
+            $status = 'Finca eliminada con éxito';
+        } catch (\Illuminate\Database\QueryException $e) {
+            $status = 'Registro relacionado, imposible de eliminar';
+        }
+
+        //Retornar vista
+        return redirect()->route('fincas.index')
+            ->with('success', $status);
+
     }
 }

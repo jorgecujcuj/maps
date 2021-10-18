@@ -1,40 +1,53 @@
 <body onload="initialize()">
 <div class="box box-info padding-1">
     <div class="box-body">
-        
         <div class="form-group">
-            {{ Form::label('codigo') }}
-            {{ Form::text('codigo', $ruta->codigo, ['class' => 'form-control' . ($errors->has('codigo') ? ' is-invalid' : ''), 'placeholder' => 'Codigo']) }}
-            {!! $errors->first('codigo', '<div class="invalid-feedback">:message</p>') !!}
+            {{ Form::label('idprogramado') }}
+            <select class="form-control" name="idprogramado">
+                   <option value=""selected disabled> - Selecciona una solicitud - </option>
+                    @foreach ($programados as $programado)
+                    <option value="{{ $programado->id }}" {{$programado->id == $confirmacione->idprogramado ? 'selected' : ''}} >{{ $programado->idsolicitud }}</option>
+                    @endforeach
+            </select>
+            @error('idprogramado')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
         </div>
-        <div class="form-group">
-            {{ Form::label('nombre') }}
-            {{ Form::text('nombre', $ruta->nombre, ['class' => 'form-control' . ($errors->has('nombre') ? ' is-invalid' : ''), 'placeholder' => 'Nombre']) }}
-            {!! $errors->first('nombre', '<div class="invalid-feedback">:message</p>') !!}
-        </div>
+
         <div class="form-group">
             <label for="form-control">Latitud
             <input type="text" class="form-control @error('latitud') is-invalid @enderror"
-            name="latitud" id="txtLat" value="{{ $ruta->latitud }}"
+            name="latitud" id="txtLat" value="{{ $confirmacione->latitud }}"
             style="color:red" >
             @error('latitud')<div class="invalid-feedback">{{ $message }}</div>@enderror
             </label>
         </div>
+
         <div class="form-group">
             <label for="form-control">Longitud
             <input type="text" class="form-control @error('longitud') is-invalid @enderror"
-            name="longitud" id="txtLng" value="{{ $ruta->longitud }}"
+            name="longitud" id="txtLng" value="{{ $confirmacione->longitud }}"
             style="color:red" >
             @error('longitud')<div class="invalid-feedback">{{ $message }}</div>@enderror
             </label>
         </div>
 
+        <div class="form-group">
+            {{ Form::label('abastecida') }}
+            {{ Form::text('abastecida', $confirmacione->abastecida, ['class' => 'form-control' . ($errors->has('abastecida') ? ' is-invalid' : ''), 'placeholder' => 'Abastecida']) }}
+            {!! $errors->first('abastecida', '<div class="invalid-feedback">:message</p>') !!}
+        </div>
+        <div class="form-group">
+            {{ Form::label('descripcion') }}
+            {{ Form::text('descripcion', $confirmacione->descripcion, ['class' => 'form-control' . ($errors->has('descripcion') ? ' is-invalid' : ''), 'placeholder' => 'Descripcion']) }}
+            {!! $errors->first('descripcion', '<div class="invalid-feedback">:message</p>') !!}
+        </div>
+
     </div>
     <div class="box-footer mt20">
         <button type="submit" class="btn btn-primary">Guardar</button>
-        <a class="btn btn-danger" href="{{ route('rutas.index') }}"> Regresar</a>
+        <a class="btn btn-danger" href="{{ route('confirmaciones.index') }}"> Regresar</a>
     </div>
-    
 </div>
 <br><br>
 <div class="box box-info padding-1">
@@ -42,15 +55,28 @@
         <div id="map_canvas" style="width: auto; height: 600px;"></div>
     </div>
 </div>
+
 </body>
 
+@section('css')
+<link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
+      integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+      crossorigin=""
+/>
+@endsection
+
 @section('js')
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script
+      src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
+      integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+      crossorigin=""
+></script>
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD9DY04K6SIJModAyyH5uTIp4bWqhe9p6E"></script>
-
 <script type="text/javascript">
-       function initialize() {
+        function initialize() {
             if ('geolocation' in navigator) {
                 console.log('geolocation available');
                 navigator.geolocation.getCurrentPosition(position => {

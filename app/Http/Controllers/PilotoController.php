@@ -116,9 +116,18 @@ class PilotoController extends Controller
      */
     public function destroy($id)
     {
-        $piloto = Piloto::find($id)->delete();
 
-        return redirect()->route('pilotos.index')
-            ->with('success', 'Piloto eliminado con éxito.');
+            try {
+                //Eliminar registro
+                $piloto = Piloto::find($id)->delete();
+                $status = 'Piloto eliminada con éxito';
+            } catch (\Illuminate\Database\QueryException $e) {
+                $status = 'Registro relacionado, imposible de eliminar';
+            }
+    
+            //Retornar vista
+            return redirect()->route('pilotos.index')
+                ->with('success', $status);
+
     }
 }

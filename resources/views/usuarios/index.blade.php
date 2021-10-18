@@ -10,9 +10,11 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-body">
+
                             @can('crear-usuario')
                             <a class="btn btn-warning" href="{{ route('usuarios.create') }}">Nuevo</a>
                             @endcan
+                            
                                 <div class="table-responsive">
                                     <table class="table table-striped mt-2">
                                         <thead style="background-color:#515151">  

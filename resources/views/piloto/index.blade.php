@@ -53,15 +53,15 @@
                                             <td>
                                                 <form action="{{ route('pilotos.destroy',$piloto->id) }}" method="POST">
                                                     @can('ver-piloto')
-                                                    <a class="btn btn-primary " href="{{ route('pilotos.show',$piloto->id) }}"><i class="fa fa-fw fa-eye"></i> Ver</a>
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('pilotos.show',$piloto->id) }}"><i class="fa fa-fw fa-eye"></i> Ver</a>
                                                     @endcan
                                                     @can('editar-piloto')
-                                                    <a class="btn btn-info" href="{{ route('pilotos.edit',$piloto->id) }}"> Editar</a>
+                                                    <a class="btn btn-sm btn-success" href="{{ route('pilotos.edit',$piloto->id) }}"> Editar</a>
                                                     @endcan
                                                     @csrf
                                                     @method('DELETE')
                                                     @can('borrar-piloto')
-                                                        <button type="submit" class="btn btn-danger">Borrar</button>
+                                                        <button type="submit" class="btn btn-sm btn-danger">Borrar</button>
                                                     @endcan
                                                 </form>
                                             </td>

@@ -10,6 +10,8 @@ use App\Http\Controllers\UnidadeController;
 use App\Http\Controllers\PilotoController;
 use App\Http\Controllers\RutaController;
 use App\Http\Controllers\SolicitudeController;
+use App\Http\Controllers\ProgramadoController;
+use App\Http\Controllers\ConfirmacioneController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,5 +42,6 @@ Route::group(['middleware' => ['auth']],function(){
     Route::resource('pilotos', PilotoController::class);
     Route::resource('rutas', RutaController::class);
     Route::resource('solicitudes', SolicitudeController::class);
-    
+    Route::resource('programados', ProgramadoController::class);
+    Route::resource('confirmaciones', ConfirmacioneController::class);
 });

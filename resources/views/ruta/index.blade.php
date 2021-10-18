@@ -15,27 +15,27 @@
                     <div class="card">
                         <div class="card-body">
                 
-                                <div class="card-header">
+                                    <div class="col-xs-12 col-sm-12 col-md-12">
                                         @can('crear-ruta')
                                         <a href="{{ route('rutas.create') }}" class="btn btn-warning">
                                         {{ __('Nuevo') }}
                                         </a>
                                         @endcan
-                                
-
-                                    <div class="col-xl-12">
+                                    </div>
+                                    <br>
+                                    <div class="col-xs-12 col-sm-12 col-md-12">
                                             <form action="{{ route('rutas.index') }}" method="get">
                                                 <div class="form-row">
-                                                    <div class="col-sm-4">
+                                                    <div class="col-sm">
                                                         <input type="text" class="form-control" placeholder="" name="texto" value="{{ $texto }}">
                                                     </div>
-                                                    <div class="col-auto">
+
                                                         <input type="submit" class="btn btn-primary" Value="Buscar">
-                                                    </div>
+                    
                                                 </div>
                                             </form>
                                     </div>
-                                </div>
+
                             @if ($message = Session::get('success'))
                                 <div class="alert alert-success" style="color: black; background-color:#E9F7EF;">
                                     <p>{{ $message }}</p>
@@ -46,6 +46,7 @@
                                     <table class="table table-striped mt-2">
                                         <thead style="background-color:#515151">
                                             <tr>
+                                            <th style="color:#fff;">Id</th>
                                             <th style="color:#fff;">Codigo</th>
                                             <th style="color:#fff;">Nombre</th>
                                             <th style="color:#fff;">Latitud</th>
@@ -57,7 +58,7 @@
                                         <tbody>
                                             @foreach ($rutas as $ruta)
                                                 <tr>
-                                                    
+                                                    <td>{{ $ruta->id }}</td>
                                                     <td>{{ $ruta->codigo }}</td>
                                                     <td>{{ $ruta->nombre }}</td>
                                                     <td>{{ $ruta->latitud }}</td>

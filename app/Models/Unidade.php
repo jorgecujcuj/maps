@@ -43,4 +43,12 @@ class Unidade extends Model
         return $this->hasMany('App\Models\Piloto', 'idunidad','id');
     }
 
+    /**
+     *@return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function programado()
+    {
+        return $this->hasMany('App\Models\Programado', 'idunidad','id');
+    }
+
 }

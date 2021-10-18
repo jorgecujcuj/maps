@@ -47,11 +47,21 @@ class SeederTablaPermisos extends Seeder
             'crear-ruta',
             'editar-ruta',
             'borrar-ruta',
-            //tabla ruta
+            //tabla solicitud
             'ver-solicitud',
             'crear-solicitud',
             'editar-solicitud',
-            'borrar-solicitud'
+            'borrar-solicitud',
+            //tabla programados
+            'ver-programados',
+            'crear-programados',
+            'editar-programados',
+            'borrar-programados',
+            //tabla confirmacion
+            'ver-confirmacion',
+            'crear-confirmacion',
+            'editar-confirmacion',
+            'borrar-confirmacion'
 
         ];
         

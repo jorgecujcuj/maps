@@ -120,9 +120,17 @@ class SolicitudeController extends Controller
      */
     public function destroy($id)
     {
-        $solicitude = Solicitude::find($id)->delete();
+        try {
+            //Eliminar registro
+            $solicitude = Solicitude::find($id)->delete();
+            $status = 'Solicitud eliminada con éxito';
+        } catch (\Illuminate\Database\QueryException $e) {
+            $status = 'Registro relacionado, imposible de eliminar';
+        }
 
+        //Retornar vista
         return redirect()->route('solicitudes.index')
-            ->with('success', 'Solicitud eliminada con éxito.');
+            ->with('success', $status);
+
     }
 }
