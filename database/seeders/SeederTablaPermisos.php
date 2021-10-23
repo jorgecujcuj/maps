@@ -27,6 +27,11 @@ class SeederTablaPermisos extends Seeder
             'crear-usuario',
             'editar-usuario',
             'borrar-usuario',
+            //tabla ruta
+            'ver-ruta',
+            'crear-ruta',
+            'editar-ruta',
+            'borrar-ruta',
             //tabla fincas
             'ver-finca',
             'crear-finca',
@@ -42,11 +47,6 @@ class SeederTablaPermisos extends Seeder
             'crear-piloto',
             'editar-piloto',
             'borrar-piloto',
-            //tabla ruta
-            'ver-ruta',
-            'crear-ruta',
-            'editar-ruta',
-            'borrar-ruta',
             //tabla solicitud
             'ver-solicitud',
             'crear-solicitud',

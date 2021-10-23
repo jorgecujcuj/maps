@@ -35,7 +35,7 @@
                         <label for="password" class="control-label">Password</label>
                         <div class="float-right">
                             <a href="{{ route('password.request') }}" class="text-small">
-                                Forgot Password?
+                                ¿Has olvidado tu contraseña?
                             </a>
                         </div>
                     </div>
@@ -53,13 +53,13 @@
                     <div class="custom-control custom-checkbox">
                         <input type="checkbox" name="remember" class="custom-control-input" tabindex="3"
                                id="remember"{{ (Cookie::get('remember') !== null) ? 'checked' : '' }}>
-                        <label class="custom-control-label" for="remember">Remember Me</label>
+                        <label class="custom-control-label" for="remember">Recordar contraseña</label>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary btn-lg btn-block" tabindex="4">
-                        Login
+                        Iniciar sesión
                     </button>
                 </div>
             </form>
